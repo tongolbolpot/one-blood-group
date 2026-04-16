@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>One Blood Group System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #0f2027;
+            color: white;
+        }
+
+        /* LOGIN */
+        #loginPage {
+            text-align: center;
+            padding-top: 120px;
+        }
+
+        input {
+            padding: 12px;
+            margin: 8px;
+            width: 260px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background: #00c6ff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* DASHBOARD */
+        #dashboard {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .name {
+            background: #00c6ff;
+            margin: 10px auto;
+            padding: 15px;
+            width: 300px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* PROFILE */
+        #profilePage {
+            display: none;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .box {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .back {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage">
+    <h2>ONE BLOOD GROUP LOGIN</h2>
+
+    <input type="text" id="email" placeholder="onebloodgroup@outlook.com"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+    <h2>ONE BLOOD GROUP MEMBERS</h2>
+
+    <div class="name" onclick="openProfile('yohanis')">Yohanis Nhial</div>
+    <div class="name" onclick="openProfile('kim')">Kim Simon Miyong</div>
+    <div class="name" onclick="openProfile('gatwech')">Gatwech Jock Tholbook</div>
+    <div class="name" onclick="openProfile('diew')">Diew Joch Dup</div>
+    <div class="name" onclick="openProfile('bang')">Bang Khor</div>
+    <div class="name" onclick="openProfile('kudier')">Kudier</div>
+    <div class="name" onclick="openProfile('chot')">Chot Gatkuoth Rut</div>
+    <div class="name" onclick="openProfile('ruot')">Ruot Nyak Jal</div>
+</div>
+
+<!-- PROFILE -->
+<div id="profilePage">
+    <div class="box">
+        <h2 id="name"></h2>
+        <p id="details"></p>
+
+        <button class="back" onclick="back()">Back</button>
+    </div>
+</div>
+
+<script>
+function login() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    if(email === "onebloodgroup@outlook.com" && password === "family") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+    } else {
+        alert("Invalid login details");
+    }
+}
+
+function openProfile(person) {
+    let data = {
+        yohanis: {
+            name: "Yohanis Nhial",
+            details: "Web Development & Database Administration (Level IV) graduate from Mekdela College, Gambella Campus. Skilled in Python, cybersecurity, and web systems."
+        },
+        kim: {
+            name: "Kim Simon Miyong",
+            details: "BSc Applied Chemistry (GPA 3.96) from Gambella University. Also Public Health background. Currently MSc Project Management at Premier College."
+        },
+        gatwech: {
+            name: "Gatwech Jock Tholbook",
+            details: "BSc Public Health graduate from Unity University, Addis Ababa."
+        },
+        diew: {
+            name: "Diew Joch Dup",
+            details: "Social Work graduate from Trinity College."
+        },
+        bang: {
+            name: "Bang Khor",
+            details: "BSc Biotechnology graduate from Ambo University."
+        },
+        kudier: {
+            name: "Kudier chuol Rut",
+            details: "Public Health graduate from Baro College."
+        },
+        chot: {
+            name: "Chot Gatkuoth Rut",
+            details: "Auto culture graduate from Ambo University."
+        },
+        ruot: {
+            name: "Ruot Nyak Jal",
+            details: "Economics graduate from Jijiga University."
+        }
+    };
+
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("profilePage").style.display = "block";
+
+    document.getElementById("name").innerText = data[person].name;
+    document.getElementById("details").innerText = data[person].details;
+}
+
+function back() {
+    document.getElementById("profilePage").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+}
+</script>
+
+</body>
+</html>
